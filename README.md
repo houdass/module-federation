@@ -1,27 +1,46 @@
-# ModuleFederationStarter
+##### ng new module-federation-starter --create-application=false
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
+##### ng g app shell (Host)
 
-## Development server
+##### ng g app product (MicroFrontend/Remote)
+##### ng g app customer (MicroFrontend/Remote)
+##### ng g app order (MicroFrontend/Remote)
+##### ng g app tracking (MicroFrontend/Remote)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### Add resolutions to package.json
+```
+"resolutions": {
+    "webpack": "5.0.0"
+}
+```
 
-## Code scaffolding
+This section makes yarn to install webpack 5 for the CLI (and for all the other libraries depending on webpack).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##### yarn add bootstrap
 
-## Build
+##### yarn install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+##### ng add @angular-architects/module-federation --project shell --port 3003
 
-## Running unit tests
+##### ng add @angular-architects/module-federation --project product --port 4004
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+##### ng add @angular-architects/module-federation --project customer --port 5005
 
-## Running end-to-end tests
+##### ng add @angular-architects/module-federation --project order --port 6006
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+##### ng add @angular-architects/module-federation --project tracking --port 7007
 
-## Further help
+##### Adjust webpack.config.js of the shell and remotes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+##### Edit routing in the shell
+
+##### As the Url project/Module does not exist at compile time, ease the TypeScript compiler by adding the following line to the file projects\shell\src\declarations.d.ts:
+     
+```
+declare module 'product/Module';
+```
+
+#### ng serve shell -o
+#### ng serve project -o
+
+##### Edit routing in the shell

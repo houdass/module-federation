@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img
+      src="https://angular.io/assets/images/logos/angular/angular.svg"
+      width="30"
+      height="30">
+  </a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/product">Product</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/customer">Customer</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/order">Order</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/tracking">Tracking</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container mt-2">
+  <div class="row">
+    <div class="jumbotron">
+      Welcome to the Angular Microfrontend demo using Webpack 5 Module federation
+      This component is part of the shell application, the remote components
+      (customer, order, product, tracking) are remotely loaded into the application,
+      check the network settings to see these remotes being loaded.
+    </div>
+
+    <div class="jumbotron col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
